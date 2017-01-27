@@ -46,6 +46,9 @@ void setup() {
 void loop(){
     if (Serial.available() > 0) { //  Check if there is a new message
       message = Serial.read();    //  Put the serial input into the message
+      Serial.println("Received ");
+      Serial.print(message);
+      Serial.print(" from IOS OSC app via Processing code");
       if (message == 'l') {
         if (left == false) {
           left = true;
@@ -103,5 +106,55 @@ void loop(){
           }
         }
       }
+    if (forward == true) {
+      hip.write(100);
+      } else {
+        hip.write(0);
+        }
+    if (backward == true) {
+      hip.write(-100);
+      } else {
+        hip.write(0);
+        }
+    if (up == true) {
+      shoulder.write(100);
+      } else {
+        shoulder.write(0);
+        }
+    if (down == true) {
+      shoulder.write(-100);
+      } else {
+        shoulder.write(0);
+        }
+    if (left == true) {
+      base.write(100);
+      } else {
+        base.write(0);
+        }
+    if (right == true) {
+      base.write(-100);
+      } else {
+        base.write(0);
+        }
+    if (clawClose == true) {
+      claw.write(100);
+      } else {
+        claw.write(0);
+        }
+    if (clawOpen == true) {
+      claw.write(-100);
+      } else {
+        claw.write(0);
+        }
+    if (pennyFlipperAwake == true) {
+      pennyFlipper.write(180);
+      } else {
+        pennyFlipper.write(0);
+        }
+    if (pennyFlipperAsleep == true) {
+      pennyFlipper.write(0);
+      } else {
+        pennyFlipper.write(0);
+        }
   }
 
