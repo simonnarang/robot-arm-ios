@@ -40,15 +40,15 @@ void setup() {
   pennyFlipperAwake = false;
   pennyFlipperAsleep = false;
   
-  Serial.println("YAY Robot Up and Running");
+  Serial.println("YA Robot Up and Running");
 }
 
 void loop(){
     if (Serial.available() > 0) { //  Check if there is a new message
       message = Serial.read();    //  Put the serial input into the message
-      Serial.println("Received ");
+      Serial.print("Received ");
       Serial.print(message);
-      Serial.print(" from IOS OSC app via Processing code");
+      Serial.println(" from IOS OSC app via Processing code");
       if (message == 'l') {
         if (left == false) {
           left = true;
